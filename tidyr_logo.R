@@ -7,7 +7,7 @@ library("ggplot2")
 
 # Set the range of the xy plane
 xRange <- 19
-yRange <- 10
+yRange <- 9
 
 # Generate x and y values for the xy plane for each column-row intersection
 xValues <- rep(1:xRange, yRange)
@@ -17,8 +17,8 @@ yValues <- rep(1:yRange, each = xRange)
 logoPlane <- data.frame(xValue = xValues, yValue = yValues)
 
 # Generate x and y values for the xy plane for each column-row intersections that create "tidyr" 
-logoXValues <- c(2,3,3,3,3,3,3,4,6,6,6,6,8,8,8,9,9,10,10,10,10,10,10,12,12,12,12,13,13,14,14,14,14,14,16,16,16,16,17,18)
-logoYValues <- c(7,4,5,6,7,8,9,7,4,5,6,8,4,5,6,4,6,4,5,6,7,8,9,2,4,5,6,2,4,2,3,4,5,6,4,5,6,7,7,7)
+logoXValues <- c(2,3,3,3,3,3,4,6,6,6,6,8,8,8,9,9,10,10,10,10,10,12,12,12,12,13,13,14,14,14,14,14,16,16,16,17,18)
+logoYValues <- c(6,4,5,6,7,8,6,4,5,6,8,4,5,6,4,6,4,5,6,7,8,2,4,5,6,2,4,2,3,4,5,6,4,5,6,6,6)
 
 # Create a data frame with the x and y values where on row contains a coordinate for a column-row intersection that create "tidyr"
 # Create a new column that indicates these rows are used to create the logo
