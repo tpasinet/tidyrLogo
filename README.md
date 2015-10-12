@@ -1,6 +1,6 @@
 # tidyrLogo
 
-tidyrLogo is an R script that I wrote to produce a logo for the tidyr package that reflects the spirit of the package by spelling out "tidyr" with uniform shapes uniformly colored agains a field of randomly chosen and colored shapes.
+tidyrLogo is a R script that I wrote to produce a logo for the tidyr package that reflects the spirit of the package by spelling out "tidyr" with uniform shapes uniformly colored agains a field of randomly chosen and colored shapes.
 
 tidyr project on CRAN: https://cran.r-project.org/web/packages/tidyr/index.html
 
