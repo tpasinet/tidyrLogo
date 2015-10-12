@@ -20,11 +20,11 @@ logoPlane <- data.frame(xValue = xValues, yValue = yValues)
 logoXValues <- c(2,3,3,3,3,3,4,6,6,6,6,8,8,8,9,9,10,10,10,10,10,12,12,12,12,13,13,14,14,14,14,14,16,16,16,17,18)
 logoYValues <- c(6,4,5,6,7,8,6,4,5,6,8,4,5,6,4,6,4,5,6,7,8,2,4,5,6,2,4,2,3,4,5,6,4,5,6,6,6)
 
-# Create a data frame with the x and y values where on row contains a coordinate for a column-row intersection that create "tidyr"
+# Create a data frame with the x and y values where one row contains a coordinate for a column-row intersection that create "tidyr"
 # Create a new column that indicates these rows are used to create the logo
 logoPoints <- data.frame(xValue = logoXValues, yValue = logoYValues, isLogoCoordinate = TRUE)
 
-# Merger the plane and poitn data frames so that each coordiante that is used in word is distinguidhed from the general plane
+# Merger the plane and point data frames so that each coordiante that is used in word is distinguidhed from the general plane
 logoPlane <- merge(x = logoPlane, y = logoPoints, by = c("xValue","yValue"), all = TRUE)
 # Set the values of rows that are not used in the word from NA to FALSE
 logoPlane$isLogoCoordinate[is.na(logoPlane$isLogoCoordinate)] <- FALSE
@@ -37,7 +37,7 @@ logoPlaneShape <- c(0,1,2,5,6)
 logoPlane$logoColor <- sapply(1:(xRange * yRange), function(x) sample(logoPlaneColor,1))
 logoPlane$logoShape <- sapply(1:(xRange * yRange), function(x) sample(logoPlaneShape,1))
 
-# Set the color and shape of the word coordinates to a specific color and a specific shape not previous set in the color and shaoe sets
+# Set the color and shape of the word coordinates to a specific color and a specific shape not previous set in the color and shape sets
 logoPlane$logoColor[which(logoPlane$isLogoCoordinate == TRUE)] <- "#000000" 
 logoPlane$logoShape[which(logoPlane$isLogoCoordinate == TRUE)] <- 15
 
