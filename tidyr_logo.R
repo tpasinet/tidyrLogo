@@ -1,5 +1,5 @@
 # This script constructs a graph representing a design concept for the R package tidyr
-# tidyr is a package that helps analyst transform mishapen data in a "tidy" format ready for analysis and visualization
+# tidyr is a package that helps analysts transform mishapen data in a "tidy" format ready for analysis and visualization
 # The logo reflects the goal of tidyr by forming the word tidyr with uniform shapes of the same color amid a field of randomly plotted shapes rndomly colored
 
 # Load libraries
@@ -42,12 +42,13 @@ logoPlane$logoColor[which(logoPlane$isLogoCoordinate == TRUE)] <- "#000000"
 logoPlane$logoShape[which(logoPlane$isLogoCoordinate == TRUE)] <- 15
 
 # Construct the plot so that the color and shape of each coodinate is set from the assigned values in the data frame. Additionally, make the letter coordinate shapes bigger than the plane shapes.
-tidyrLogo <- ggplot(data=logoPlane, aes(x=xValue,y=yValue)) +
-  scale_y_discrete(name="") +
-  scale_x_discrete(name="") +
+tidyrLogo <- ggplot() +
+  scale_y_continuous(name="") +
+  scale_x_continuous(name="") +
   scale_shape_identity() +
   scale_colour_identity() +
-  geom_point(mapping=aes(shape=logoShape, color=logoColor), size=ifelse(logoPlane$isLogoCoordinate == TRUE,15,10))
+  geom_point(data=logoPlane[which(logoPlane$isLogoCoordinate == FALSE),], mapping=aes(x=xValue, y=yValue, shape=logoShape, color=logoColor), size=10, position=position_jitter(width = 0.25, height = 0.25)) +
+  geom_point(data=logoPlane[which(logoPlane$isLogoCoordinate == TRUE),], mapping=aes(x=xValue, y=yValue, shape=logoShape, color=logoColor), size=15)
 
 # Remove almost all plot area elements and return the plot
 tidyrLogo + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text = element_blank(), axis.ticks = element_blank())
