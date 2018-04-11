@@ -24,7 +24,7 @@ logoYValues <- c(6,4,5,6,7,8,6,4,5,6,8,4,5,6,4,6,4,5,6,7,8,2,4,5,6,2,4,2,3,4,5,6
 # Create a new column that indicates these rows are used to create the logo
 logoPoints <- data.frame(xValue = logoXValues, yValue = logoYValues, isLogoCoordinate = TRUE)
 
-# Merger the plane and point data frames so that each coordiante that is used in word is distinguidhed from the general plane
+# Merge the plane and point data frames so that each coordiante that is used in word is distinguidhed from the general plane
 logoPlane <- merge(x = logoPlane, y = logoPoints, by = c("xValue","yValue"), all = TRUE)
 # Set the values of rows that are not used in the word from NA to FALSE
 logoPlane$isLogoCoordinate[is.na(logoPlane$isLogoCoordinate)] <- FALSE
